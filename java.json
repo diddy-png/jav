@@ -9,6 +9,36 @@
 	// 	"body": [
 	// 		"console.log('$1');",
 	// 		"$2"
+	"class": {
+  "prefix": "cla",
+  "body": [
+    "public class $0",
+    "{",
+    "\t",
+    "}"
+  ],
+  "description": "Class template"
+},
+  "if": {
+  "prefix": "ifs",
+  "body": [
+    "if ($0)",
+    "{",
+    "\t",
+    "}"
+  ],
+  "description": "if statement"
+},
+"else": {
+  "prefix": "else",
+  "body": [
+    "else",
+    "{",
+    "\t$0",
+    "}"
+  ],
+  "description": "else statement"
+},
 "sout": {
   "prefix": "sout",
   "body": ["System.out.println($1);"],
