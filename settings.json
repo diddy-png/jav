@@ -1,0 +1,23 @@
+{
+    "editor.suggest.showKeywords": false,
+"editor.suggest.showModules": false,
+"editor.suggest.showClasses": false,
+"editor.suggest.showInterfaces": false,
+"editor.suggest.showStructs": false,
+"editor.suggest.showEvents": false,
+"editor.tabCompletion": "on",
+"editor.suggest.showSnippets": true,
+"editor.suggest.showMethods": true,
+"editor.suggest.showFunctions": true,
+"editor.suggest.showFields": true,
+"editor.suggest.showVariables": true,
+
+
+    
+
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
