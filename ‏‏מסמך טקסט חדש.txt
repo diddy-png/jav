@@ -1,0 +1,89 @@
+Skip to content
+Navigation Menu
+diddy-png
+jav
+
+Type / to search
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+jav
+/
+Name your file...
+in
+main
+
+Edit
+
+Preview
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+serv:
+import socket
+
+
+serverSocket = socket.socket()
+serverSocket.bind(("0.0.0.0", 8820))
+serverSocket.listen()
+print("server is up and running")
+
+(client_socket, client_address) = serverSocket.accept()
+print("client connected")
+data = client_socket.recv(1024).decode()
+print("client sent :"+data)
+reply = "hello"+data
+client_socket.send(reply.encode())
+client_socket.close()
+serverSocket.close()
+
+
+
+
+
+client:
+import socket
+
+
+mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mySocket.connect(("127.0.0.1", 8820))
+mySocket.send("hello".encode())
+data = mySocket.recv(1024).decode()
+print("the Server sent"+data)
+mySocket.close()
+New File at / · diddy-png/jav 
