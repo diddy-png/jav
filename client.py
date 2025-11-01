@@ -22,7 +22,7 @@ def main():
             # 4. Get server's response
             valid_msg, cmd = protocol.get_msg(my_socket)
             # 5. If server's response is valid, print it
-            if valid_cmd:
+            if valid_msg:
                 print(f"Server responded: {cmd}")
             else:
                 print("Response not valid\n")
@@ -36,3 +36,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
