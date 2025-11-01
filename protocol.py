@@ -17,7 +17,7 @@ def check_cmd(data):
 
 def create_msg(data):
     """Create a valid protocol message, with length field"""
-    return str(len(data)).zfill(2)+data
+    return str(len(data)).zfill(LENGTH_FIELD_SIZE)+data  # rand->04rand
 
 
 def get_msg(my_socket):
