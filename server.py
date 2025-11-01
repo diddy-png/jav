@@ -9,9 +9,9 @@ def create_server_rsp(cmd):
     if cmd == "TIME":
         response = protocol.create_msg(str(datetime.now().time())).encode()
     elif cmd == "NAME":
-        response = (protocol.create_msg("zay_gezunt's_Server").encode())
+        response = protocol.create_msg("zay_gezunt's_Server").encode()
     elif cmd == "RAND":
-        response = (protocol.create_msg(str(random.randrange(1, 10))).encode())
+        response = protocol.create_msg(str(random.randrange(1, 11))).encode()
     else:
         response = "out"
     return response
