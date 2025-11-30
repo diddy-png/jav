@@ -1,0 +1,134 @@
+import java.util.Scanner;
+
+public class jj {
+    public static void main(String[] args) {
+        int[] a = { 1, 2, 3, 4, 5, 2, 3 };
+        Node<Integer> head = build_List(a);
+        print_list(head);
+        print_list_recursive(head);
+        System.out.println(only_positives());
+        print_evens(head);
+        System.out.println(check_number(head, 5));
+        System.out.println(check_number_tail_recursive(head, 6));
+        System.out.println(deli(head, 1));
+        System.out.println(del(head, 2));
+    }
+
+    public static Node<Integer> build_List(int[] a) {
+        Node<Integer> p = new Node<Integer>(a[0]);
+        Node<Integer> head = p;
+
+        for (int i = 1; i < a.length; i++) {
+            Node<Integer> x = new Node<Integer>(a[i]);
+            p.setNext(x);
+            p = p.getNext();
+        }
+        return head;
+    }
+
+    public static int sum_List(Node<Integer> head) {
+        int a = 0;
+        Node<Integer> x = head;
+        while (x != null) {
+            a += x.getValue();
+            x = x.getNext();
+        }
+        return a;
+    }
+
+    public static void print_list(Node<Integer> head) {
+        boolean value = true;
+        while (value == true) {
+            if (head != null) {
+                System.out.println(head.getValue());
+                head = head.getNext();
+            } else
+                value = false;
+
+        }
+    }
+
+    public static void print_list_recursive(Node<Integer> head) {
+        if (head != null) {
+            System.out.println(head.getValue());
+            print_list_recursive(head.getNext());
+        }
+        return;
+    }
+
+    public static Node<Integer> only_positives() {
+        Node<Integer> head = new Node<Integer>(null);
+        Node<Integer> p = head;
+        Scanner reader = new Scanner(System.in);
+        boolean b = true;
+        while (b) {
+            System.out.println("Enter a positive number ");
+            int x = reader.nextInt();
+            if (x != -1) {
+                p.setValue(x);
+                p.setNext(new Node<Integer>(null));
+                p = p.getNext();
+            } else
+                b = false;
+
+        }
+        reader.close();
+        return head;
+    }
+
+    public static void print_evens(Node<Integer> head) {
+        while (head != null) {
+            if (head.getValue() % 2 == 0)
+                System.out.println(head.getValue());
+            head = head.getNext();
+        }
+        return;
+    }
+
+    public static boolean check_number(Node<Integer> head, int n) {
+        boolean check = false;
+        while (head != null) {
+            if (head.getValue() == n) {
+                check = true;
+                return check;
+            }
+            head = head.getNext();
+        }
+        return check;
+    }
+
+    public static boolean check_number_tail_recursive(Node<Integer> head, int n) {
+        if (head == null)
+            return false;
+        if (head.getValue() == n)
+            return true;
+        else
+            return check_number_tail_recursive(head.getNext(), n);
+    }
+
+    public static Node<Integer> del(Node<Integer> p, int x) {
+        Node<Integer> head = new Node<Integer>(null, p);
+        p = head;
+        while (p.hasNext()) {
+            if (p.getNext().getValue() == x) {
+                p.setNext(p.getNext().getNext());
+                break;
+            } else
+                p = p.getNext();
+        }
+        return head.getNext();
+    }
+
+    public static Node<Integer> deli(Node<Integer> p, int x) {
+        int i = 1;
+        Node<Integer> h = new Node<Integer>(null, p);
+        p = h;
+        while (p.hasNext() && i + 1 != x) {
+            i++;
+            p = p.getNext();
+        }
+        p.setNext(p.getNext().getNext());
+        return h.getNext();
+
+    }
+}
